@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>NIPA Digital - Dashboard</title>
+
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="top-header">
+
+        <!-- Logo / Company -->
+        <div class="company-section">
+
+            <img src="nipa-logo.png"
+                 alt="NIPA Digital"
+                 class="nipa-logo">
+
+            <div class="company-name">
+                <div>NIPA GENX ELECTRONIC</div>
+                <div>RESOURCES &amp; SOLUTIONS P. LTD.</div>
+            </div>
+
+        </div>
+
+
+        <!-- University -->
+        <div class="university-name">
+
+            RAJMATA VIJYA RAJE SCINDIA KRISHI
+            <br>
+
+            VISHWAVIDYALAYA
+
+        </div>
+
+
+        <!-- Support + Logout -->
+        <div class="header-right">
+
+            <div class="support">
+
+                <strong>Any Query?</strong>
+
+                Contact Support @ +91 1143860225
+
+            </div>
+
+            <button class="logout-btn"
+                    id="logoutBtn">
+
+                Logout
+
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- ================= WELCOME BAR ================= -->
+
+    <div class="welcome-bar">
+
+        Welcome
+        <span id="username"></span>
+        !
+
+    </div>
+
+
+
+    <!-- ================= MAIN AREA ================= -->
+
+    <main class="main-container">
+
+
+        <!-- ================= SIDEBAR ================= -->
+
+        <aside class="sidebar">
+
+
+            <div class="account-title">
+
+                Account Settings
+
+            </div>
+
+
+            <ul class="menu">
+
+
+                <li>
+
+                    <a href="#">
+
+                        <span class="menu-icon">
+                            ⚙
+                        </span>
+
+                        My Dashboard
+
+                    </a>
+
+                </li>
+
+
+                <li>
+
+                    <a href="#">
+
+                        <span class="menu-icon">
+                            ◉
+                        </span>
+
+                        My Profile
+
+                    </a>
+
+                </li>
+
+
+                <li>
+
+                    <a href="#">
+
+                        <span class="menu-icon">
+                            ⚙
+                        </span>
+
+                        Exam Datesheet
+
+                    </a>
+
+                </li>
+
+
+                <li>
+
+                    <a href="#">
+
+                        <span class="menu-icon">
+                            🔒
+                        </span>
+
+                        Change Password
+
+                    </a>
+
+                </li>
+
+
+                <li>
+
+                    <a href="#"
+                       id="sidebarLogout">
+
+                        <span class="menu-icon">
+                            ↪
+                        </span>
+
+                        Logout
+
+                    </a>
+
+                </li>
+
+
+            </ul>
+
+        </aside>
+
+
+
+        <!-- ================= CONTENT ================= -->
+
+        <section class="content">
+
+
+            <h1 class="access-title">
+
+                My Access
+
+            </h1>
+
+
+            <!-- QUIZ CARD -->
+
+            <div class="access-card">
+
+
+                <div class="quiz-image">
+
+                    <!-- Temporary icon -->
+                    💡
+
+                </div>
+
+
+                <div class="card-content">
+
+
+                    <h2>
+
+                        RSVKV DIGITAL QUIZ
+
+                    </h2>
+
+
+                    <p>
+
+                        Customized Mock Papers
+
+                    </p>
+
+
+                    <button class="go-inside">
+
+                        Go Inside
+
+                    </button>
+
+
+                </div>
+
+
+                <div class="arrow">
+
+                    ↗
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="footer">
+
+        © Copyright 2026 - NIPA:
+        NIPA GENX ELECTRONIC RESOURCES
+        AND SOLUTIONS P. LTD.
+        All Rights Reserved.
+
+    </footer>
+
+
+</div>
+
+
+
+<script>
+
+    // ==========================================
+    // CHECK LOGIN
+    // ==========================================
+
+    const loggedInUser =
+        sessionStorage.getItem("loggedInUser");
+
+
+    // Agar login nahi hai
+    // to login page par bhej do
+
+    if (!loggedInUser) {
+
+        window.location.href =
+            "index.html";
+
+    }
+
+
+    // ==========================================
+    // SHOW USERNAME
+    // ==========================================
+
+    document.getElementById("username")
+        .textContent =
+        " " + loggedInUser.toUpperCase();
+
+
+
+    // ==========================================
+    // LOGOUT FUNCTION
+    // ==========================================
+
+    function logout() {
+
+        sessionStorage.removeItem(
+            "loggedInUser"
+        );
+
+        window.location.href =
+            "index.html";
+
+    }
+
+
+    // Header Logout
+
+    document.getElementById("logoutBtn")
+        .addEventListener(
+            "click",
+            logout
+        );
+
+
+    // Sidebar Logout
+
+    document.getElementById("sidebarLogout")
+        .addEventListener(
+            "click",
+            function(event) {
+
+                event.preventDefault();
+
+                logout();
+
+            }
+        );
+
+</script>
+
+
+</body>
+
+</html>
