@@ -1,0 +1,159 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.nav-bar {
+    background-color: #06437D;
+    color: white;
+    height: 70px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-family: sans-serif;
+    margin-top: 20px;
+    padding-left: 10px;
+    font-size: 20px;
+}
+
+.lang {
+    display: flex;
+    justify-content: flex-end;
+    padding-inline-end: 29px;
+    padding-top: 10px;
+}
+
+.lang select {
+    width: 150px;
+    height: 28px;
+}
+
+.camera-box {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+
+    width: 107px;
+    height: 80px;
+
+    border: 2px solid green;
+    border-radius: 10px;
+
+    overflow: hidden;
+    background: #000;
+
+    z-index: 1000;
+}
+
+#camera {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    /* Front camera ki mirror view */
+    transform: scaleX(-1);
+}
+
+.clock {
+    display: flex;
+    background-color: lightskyblue;
+    height: 46px;
+    border: 1px solid black;
+    border-radius: 13px;
+    margin: 10px;
+    justify-content: space-around;
+    align-items: center; 
+}
+
+.clock i{
+    font-size: 20px;
+}
+#options{
+    margin:5%;
+}
+#options input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    height: 20px;
+    width: 20px;
+    border: 1px solid black;
+
+    cursor: pointer;
+    vertical-align: middle;
+    margin-right: 5px;
+    margin: 5px;
+
+}
+
+/* Select hone par */
+#options input[type="radio"]:checked {
+    background-color: #333;
+    border-color: #333;
+}
+
+#options input[type="radio"]:checked::after {
+    content: "✓";
+    color: white;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+#options label {
+    display: block;
+    margin: 7x;
+    cursor: pointer;
+}
+.quiz-box{
+border: 1px solid black;
+margin: 10px;
+border-radius: 13px;
+padding: 20px;
+font-weight: bold;
+font-family: sans-serif;
+
+}
+.buttons{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+.buttons button{
+     height: 41px;
+    border-radius: 5px;
+    background-color: cyan;
+    border: none;
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 15px;
+}
+hr{
+    height: 0.01rem;
+    border: none;
+    background-color: black;
+}
+#questionNumber{
+    background-color: gainsboro;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10px;
+    height: 10px;
+    padding: 10px;
+    border-radius: 50%;
+    border: 1px solid grey;
+}
+#question{
+    margin-left: 5px;
+}
+.q{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 15px;
+}
+#nextBtn{
+    background-color: green;
+}

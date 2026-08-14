@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quiz</title>
+    <link rel="stylesheet" href="quiz.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css"
+        integrity="sha512-ApSLB1Pd3/bZN8fWB/RG9YhN/7bd9Hkf3AGaE2mPfebjrxagjuBtx2GcgdqIlJkUzwylBo61r9Xa9NmgBI0swA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <nav class="nav-bar">
+        <div>Welcome <span>Kishor</span></div>
+    </nav>
+    <div class="camera-box">
+        <video id="camera" autoplay playsinline></video>
+    </div>
+    <div class="lang">
+        <select name="" id="">
+            <option value="">English</option>
+            <option value="">Hindi</option>
+        </select>
+    </div>
+    <div class="clock">
+        <h2>Time Left</h2>
+        <i class="fa-regular fa-clock"></i>
+        <h2 id="timer">30;00</h2>
+    </div>
+
+    <div class="quiz-box">
+        <div class="q">
+            <div id="questionNumber"></div>
+        <span id="question"></span>
+        </div>
+
+        <div id="options"></div>
+        <hr>
+        <div class="buttons">
+            <button id="reviewBtn">Mark for Review</button>
+        <button id="nextBtn">Save & Next</button>
+
+        </div>
+
+    </div>
+    <script>
+        const camera = document.getElementById("camera");
+
+        async function startCamera() {
+
+            try {
+
+                const stream = await navigator.mediaDevices.getUserMedia({
+                    video: {
+                        facingMode: "user"
+                    },
+                    audio: false
+                });
+
+                camera.srcObject = stream;
+
+            } catch (error) {
+
+                console.error("Camera access denied:", error);
+
+                alert("Camera permission is required to start the quiz.");
+            }
+        }
+
+
+        // Camera start
+        startCamera();
+
+
+
+
+        let timeLeft = 30 * 60; // 30 minutes = 1800 seconds
+
+        const timer = document.getElementById("timer");
+
+        const countdown = setInterval(function () {
+
+            let minutes = Math.floor(timeLeft / 60);
+            let seconds = timeLeft % 60;
+
+            // 01:05 jaisa format
+            minutes = String(minutes).padStart(2, "0");
+            seconds = String(seconds).padStart(2, "0");
+
+            timer.textContent = `${minutes}:${seconds}`;
+
+            // Time khatam
+            if (timeLeft <= 0) {
+
+                clearInterval(countdown);
+
+                timer.textContent = "00:00";
+
+                // Yahan quiz automatically submit karwa sakte ho
+                alert("Time's up!");
+
+            }
+
+            timeLeft--;
+
+        }, 1000);
+
+        const questions = [
+            {
+                question: "What is Java?",
+                options: [
+                    "Programming Language",
+                    "Operating System",
+                    "Database",
+                    "Browser"
+                ]
+            },
+            {
+                question: "Which keyword is used to create a class in Java?",
+                options: [
+                    "class",
+                    "function",
+                    "define",
+                    "newClass"
+                ]
+            },
+            {
+                question: "Which data type is used to store integers?",
+                options: [
+                    "int",
+                    "float",
+                    "String",
+                    "boolean"
+                ]
+            }
+        ];
+
+        let currentQuestion = 0;
+
+        let userAnswers = [];
+
+
+        // ===============================
+        // QUIZ START TIME
+        // ===============================
+
+        const startTime = new Date();
+
+
+        // ===============================
+        // ELEMENTS
+        // ===============================
+
+        const questionElement = document.getElementById("question");
+        const optionsElement = document.getElementById("options");
+        const nextBtn = document.getElementById("nextBtn");
+        const reviewBtn = document.getElementById("reviewBtn");
+
+
+        // ===============================
+        // SHOW QUESTION
+        // ===============================
+        const questionNumberElement = document.getElementById("questionNumber");
+            
+
+        function showQuestion() {
+
+            questionNumberElement.textContent =
+                currentQuestion + 1;
+            const q = questions[currentQuestion];
+
+            questionElement.textContent = q.question;
+
+            optionsElement.innerHTML = "";
+
+            q.options.forEach((option, index) => {
+
+                const label = document.createElement("label");
+
+                label.innerHTML = `
+            <input 
+                type="radio" 
+                name="answer" 
+                value="${index}"
+            >
+            ${option}
+        `;
+
+                optionsElement.appendChild(label);
+                optionsElement.appendChild(
+                    document.createElement("br")
+                );
+            });
+
+
+            // Last question
+            if (currentQuestion === questions.length - 1) {
+
+                nextBtn.textContent = "Submit";
+
+            } else {
+
+                nextBtn.textContent = "Save & Next";
+            }
+        }
+
+
+        // ===============================
+        // SAVE & NEXT / SUBMIT
+        // ===============================
+
+        nextBtn.addEventListener("click", function () {
+
+            const selected = document.querySelector(
+                'input[name="answer"]:checked'
+            );
+
+
+            // Answer select nahi kiya
+            if (!selected) {
+
+                alert("Please select an answer!");
+
+                return;
+            }
+
+
+            // Answer save
+            userAnswers[currentQuestion] = Number(selected.value);
+
+
+            // ===============================
+            // LAST QUESTION
+            // ===============================
+
+            if (currentQuestion === questions.length - 1) {
+
+                const endTime = new Date();
+
+
+                // Attempted questions
+                const attempted = userAnswers.filter(
+                    answer => answer !== undefined
+                ).length;
+
+
+                // Skipped questions
+                const skipped = questions.length - attempted;
+
+
+                // Quiz result data
+                const quizResult = {
+
+                    totalQuestions: questions.length,
+
+                    attempted: attempted,
+
+                    skipped: skipped,
+
+                    startTime: startTime.toISOString(),
+
+                    endTime: endTime.toISOString(),
+
+                    answers: userAnswers
+                };
+
+
+                // Save result
+                localStorage.setItem(
+                    "quizResult",
+                    JSON.stringify(quizResult)
+                );
+
+
+                // Result page
+                window.location.href = "result.html";
+
+                return;
+            }
+
+
+            // ===============================
+            // NEXT QUESTION
+            // ===============================
+
+            currentQuestion++;
+
+            showQuestion();
+        });
+
+
+        // ===============================
+        // FIRST QUESTION ON PAGE LOAD
+        // ===============================
+
+        showQuestion();
+    </script>
+</body>
+
+</html>
