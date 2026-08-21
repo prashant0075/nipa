@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css"
         integrity="sha512-ApSLB1Pd3/bZN8fWB/RG9YhN/7bd9Hkf3AGaE2mPfebjrxagjuBtx2GcgdqIlJkUzwylBo61r9Xa9NmgBI0swA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="dashboard.css">
 </head>
 
 <body>
@@ -45,6 +46,16 @@
         </div>
 
     </div>
+
+        <footer class="footer">
+
+        © Copyright 2026 - NIPA:
+        NIPA GENX ELECTRONIC RESOURCES
+        AND SOLUTIONS P. LTD.
+        All Rights Reserved.
+
+    </footer>
+
     <script>
         const camera = document.getElementById("camera");
 
@@ -108,33 +119,206 @@
         }, 1000);
 
         const questions = [
-            {
-                question: "What is Java?",
-                options: [
-                    "Programming Language",
-                    "Operating System",
-                    "Database",
-                    "Browser"
-                ]
-            },
-            {
-                question: "Which keyword is used to create a class in Java?",
-                options: [
-                    "class",
-                    "function",
-                    "define",
-                    "newClass"
-                ]
-            },
-            {
-                question: "Which data type is used to store integers?",
-                options: [
-                    "int",
-                    "float",
-                    "String",
-                    "boolean"
-                ]
-            }
+              {
+    question: "Agricultural Economics is mainly concerned with the application of economic principles to:",
+    options: ["Industry", "Agriculture", "Banking", "Transport"],
+    answer: "Agriculture"
+  },
+  {
+    question: "The basic economic problem arises because resources are:",
+    options: ["Unlimited", "Scarce", "Free", "Abundant"],
+    answer: "Scarce"
+  },
+  {
+    question: "The utility of a commodity means its:",
+    options: ["Price", "Usefulness", "Cost", "Supply"],
+    answer: "Usefulness"
+  },
+  {
+    question: "According to the law of demand, when price increases, demand generally:",
+    options: ["Increases", "Decreases", "Remains constant", "Doubles"],
+    answer: "Decreases"
+  },
+  {
+    question: "A demand curve generally slopes:",
+    options: ["Upward", "Downward", "Vertical only", "Horizontal only"],
+    answer: "Downward"
+  },
+  {
+    question: "Supply means the quantity of a commodity offered for sale at a given:",
+    options: ["Income", "Price", "Cost", "Profit"],
+    answer: "Price"
+  },
+  {
+    question: "The supply curve generally slopes:",
+    options: ["Downward", "Upward", "Horizontally", "Randomly"],
+    answer: "Upward"
+  },
+  {
+    question: "Elasticity of demand measures the responsiveness of demand to a change in:",
+    options: ["Supply", "Price or other factors", "Production only", "Population only"],
+    answer: "Price or other factors"
+  },
+  {
+    question: "When percentage change in demand is greater than percentage change in price, demand is:",
+    options: ["Inelastic", "Elastic", "Unitary elastic", "Perfectly inelastic"],
+    answer: "Elastic"
+  },
+  {
+    question: "Marginal utility means the additional utility obtained from:",
+    options: ["All units", "One additional unit", "First unit only", "Last five units"],
+    answer: "One additional unit"
+  },
+  {
+    question: "The law of diminishing marginal utility states that marginal utility generally:",
+    options: ["Increases continuously", "Decreases with additional consumption", "Remains constant", "Becomes infinite"],
+    answer: "Decreases with additional consumption"
+  },
+  {
+    question: "Consumer equilibrium is achieved when the consumer gets:",
+    options: ["Minimum satisfaction", "Maximum satisfaction", "Minimum income", "Maximum expenditure"],
+    answer: "Maximum satisfaction"
+  },
+  {
+    question: "The principle of equi-marginal utility is also known as the law of:",
+    options: ["Demand", "Substitution", "Variable proportion", "Supply"],
+    answer: "Substitution"
+  },
+  {
+    question: "Production means the creation of:",
+    options: ["Money", "Utility", "Demand", "Inflation"],
+    answer: "Utility"
+  },
+  {
+    question: "Land, labour, capital and entrepreneur are known as:",
+    options: ["Factors of production", "Factors of demand", "Factors of supply", "Consumer goods"],
+    answer: "Factors of production"
+  },
+  {
+    question: "Which of the following is a fixed factor in the short run?",
+    options: ["Land", "Fertilizer", "Seed", "Labour"],
+    answer: "Land"
+  },
+  {
+    question: "The law of variable proportions applies when:",
+    options: ["All factors are fixed", "One factor is variable and others are fixed", "All factors are variable", "No factor is used"],
+    answer: "One factor is variable and others are fixed"
+  },
+  {
+    question: "Total Product refers to:",
+    options: ["Output produced by all units of a variable factor", "Cost of production", "Price of output", "Total income"],
+    answer: "Output produced by all units of a variable factor"
+  },
+  {
+    question: "Marginal Product is the change in total product due to one additional unit of:",
+    options: ["Fixed factor", "Variable factor", "Land only", "Capital only"],
+    answer: "Variable factor"
+  },
+  {
+    question: "Average Product is calculated as:",
+    options: ["Total Product ÷ Variable Factor", "Variable Factor ÷ Total Product", "Total Cost ÷ Output", "Total Revenue ÷ Output"],
+    answer: "Total Product ÷ Variable Factor"
+  },
+  {
+    question: "The cost that does not change with the level of output in the short run is called:",
+    options: ["Variable cost", "Fixed cost", "Marginal cost", "Opportunity cost"],
+    answer: "Fixed cost"
+  },
+  {
+    question: "Cost which changes with the level of production is called:",
+    options: ["Fixed cost", "Variable cost", "Sunk cost", "Social cost"],
+    answer: "Variable cost"
+  },
+  {
+    question: "Marginal Cost is the addition to total cost caused by producing:",
+    options: ["One additional unit", "All units", "No unit", "Fixed output"],
+    answer: "One additional unit"
+  },
+  {
+    question: "Revenue obtained from selling one additional unit is called:",
+    options: ["Total revenue", "Average revenue", "Marginal revenue", "Net revenue"],
+    answer: "Marginal revenue"
+  },
+  {
+    question: "Profit is equal to:",
+    options: ["Cost − Revenue", "Revenue − Cost", "Cost + Revenue", "Revenue ÷ Cost"],
+    answer: "Revenue − Cost"
+  },
+  {
+    question: "Inflation refers to a sustained increase in the general:",
+    options: ["Production level", "Price level", "Employment level", "Export level"],
+    answer: "Price level"
+  },
+  {
+    question: "A major cause of demand-pull inflation is:",
+    options: ["Excess demand", "Low demand", "Excess supply", "Fall in population"],
+    answer: "Excess demand"
+  },
+  {
+    question: "Deflation refers to a sustained fall in the general:",
+    options: ["Price level", "Production cost", "Population", "Employment"],
+    answer: "Price level"
+  },
+  {
+    question: "National income is the total income earned by the factors of production of a:",
+    options: ["Firm", "Country", "Farm", "Household only"],
+    answer: "Country"
+  },
+  {
+    question: "GDP stands for:",
+    options: ["Gross Domestic Product", "General Domestic Price", "Gross Development Production", "General Development Product"],
+    answer: "Gross Domestic Product"
+  },
+  {
+    question: "Market is a place where buyers and sellers:",
+    options: ["Only produce goods", "Exchange goods and services", "Only consume goods", "Only save money"],
+    answer: "Exchange goods and services"
+  },
+  {
+    question: "Perfect competition is characterized by:",
+    options: ["One seller", "Many buyers and sellers", "Two sellers", "No buyers"],
+    answer: "Many buyers and sellers"
+  },
+  {
+    question: "A market with only one seller is called:",
+    options: ["Perfect competition", "Monopoly", "Oligopoly", "Duopoly"],
+    answer: "Monopoly"
+  },
+  {
+    question: "Opportunity cost means the value of the:",
+    options: ["Best alternative foregone", "Total cost", "Fixed cost", "Market price"],
+    answer: "Best alternative foregone"
+  },
+  {
+    question: "Agricultural marketing deals mainly with:",
+    options: ["Production only", "Movement of agricultural produce from producer to consumer", "Irrigation only", "Farm machinery only"],
+    answer: "Movement of agricultural produce from producer to consumer"
+  },
+  {
+    question: "A person who purchases agricultural produce directly from farmers for resale is generally called a:",
+    options: ["Consumer", "Trader", "Labourer", "Producer"],
+    answer: "Trader"
+  },
+  {
+    question: "Farm management is mainly concerned with the efficient use of:",
+    options: ["Farm resources", "Household goods", "Industrial products", "Imported goods"],
+    answer: "Farm resources"
+  },
+  {
+    question: "The main objective of farm management is to:",
+    options: ["Minimize production", "Maximize returns from available resources", "Increase wastage", "Reduce farm size"],
+    answer: "Maximize returns from available resources"
+  },
+  {
+    question: "Agricultural finance refers to the provision and management of:",
+    options: ["Agricultural labour", "Funds for agricultural activities", "Agricultural land", "Agricultural products"],
+    answer: "Funds for agricultural activities"
+  },
+  {
+    question: "Credit taken for purchasing seeds, fertilizers and other inputs for crop production is generally called:",
+    options: ["Consumption credit", "Production credit", "Housing credit", "Personal credit"],
+    answer: "Production credit"
+  }
         ];
 
         let currentQuestion = 0;

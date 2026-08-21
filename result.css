@@ -1,0 +1,20 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.result{
+    border: 1px solid black;
+    margin: 2%;
+    padding: 6%;
+    border-radius: 15px;
+
+}
+.button button{
+    background-color: #C83B50;
+    border: none;
+    padding: 10px;
+    border-radius: 20px;
+    font-size: 16px;
+    color: white;
+    margin-top: 60px;
+}
