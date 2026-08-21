@@ -1,65 +1,258 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz Result</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #ffffff;
+        }
+
+        body {
+            min-height: 100vh;
+        }
+
+        /* Main Result Box */
+        .result {
+            width: calc(100% - 58px);
+            margin: 0 auto;
+
+            min-height: 1138px;
+
+            border: 2px solid #222;
+            border-top: none;
+            border-radius: 0 0 28px 28px;
+
+            padding: 43px 84px 145px 84px;
+
+            font-size: 29px;
+            line-height: 1.6;
+
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.10);
+        }
+
+        .result p {
+            margin: 0 0 4px 0;
+        }
+
+        .result b {
+            font-weight: 700;
+        }
+
+        /* First paragraph */
+        .result p:first-child {
+            margin-bottom: 48px;
+        }
+
+        /* Summary heading */
+        .result p:nth-child(3) {
+            margin-bottom: 4px;
+        }
+
+        /* Space before Quiz Started */
+        .result p:nth-child(7) {
+            margin-top: 43px;
+        }
+
+        /* Space before Thank You */
+        .result p:nth-child(10) {
+            margin-top: 96px;
+        }
+
+        /* Button */
+        .button {
+            margin-top: 91px;
+        }
+
+        .button a {
+            text-decoration: none;
+        }
+
+        .button button {
+            width: 378px;
+            height: 75px;
+
+            border: none;
+            border-radius: 40px;
+
+            background: #df354d;
+            color: white;
+
+            font-size: 29px;
+            font-family: Arial, Helvetica, sans-serif;
+
+            cursor: pointer;
+        }
+
+        .button button:active {
+            transform: scale(0.98);
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 133px;
+
+            width: 100%;
+            min-height: 195px;
+
+            background: #0c3f73;
+            color: white;
+
+            text-align: center;
+
+            padding: 34px 0 25px 0;
+
+            font-size: 28px;
+            line-height: 1.65;
+        }
+
+
+        /* ----------------------------------
+           Mobile adjustment
+        ---------------------------------- */
+
+        @media (max-width: 600px) {
+
+            .result {
+                width: calc(100% - 58px);
+                padding-left: 84px;
+                padding-right: 45px;
+
+                font-size: 29px;
+            }
+
+            .button button {
+                width: 100%;
+                font-size: 27px;
+            }
+
+            .footer {
+                font-size: 25px;
+            }
+        }
+
+
+        /* ----------------------------------
+           Very small screens
+        ---------------------------------- */
+
+        @media (max-width: 430px) {
+
+            .result {
+                width: calc(100% - 30px);
+                padding: 35px 25px 100px 25px;
+
+                min-height: auto;
+
+                font-size: 20px;
+            }
+
+            .result p:first-child {
+                margin-bottom: 35px;
+            }
+
+            .result p:nth-child(7) {
+                margin-top: 35px;
+            }
+
+            .result p:nth-child(10) {
+                margin-top: 70px;
+            }
+
+            .button {
+                margin-top: 70px;
+            }
+
+            .button button {
+                width: 100%;
+                height: 60px;
+                font-size: 20px;
+            }
+
+            .footer {
+                margin-top: 80px;
+                padding: 25px 15px;
+                font-size: 19px;
+            }
+        }
+
+    </style>
 </head>
-<link rel="stylesheet" href="result.css">
-<link rel="stylesheet" href="dashboard.css">
+
 
 <body>
 
     <div class="result">
 
         <p>
-            Your exam is submitted successfully.
-        </p>
-        <br>
-        <p>
-            Here is the summary of your result:
-        </p>
-        <p>
-            <b>Total Questions: </b>40
+            Your exam is submitted<br>
+            successfully.
         </p>
 
         <p>
-            <b>Total Time: </b>30 Minutes
-        </p>
-        <p>
-            <b>Mark per correct answer: </b>0.50
-        </p>
-        <br>
-        <p>
-            <b>Quiz Started:</b>
-            <span id="startTime"></span>
+            Here is the summary of your<br>
+            result:
         </p>
 
         <p>
-           <b> Quiz Completed:</b>
-            <span id="endTime"></span>
+            <b>Total Questions:</b> 40
         </p>
-        <br>
-        <br><br>
-        <p>Thank You</p>
-        <p>WebMaster</p>
+
+        <p>
+            <b>Total Time:</b> 30 Minutes
+        </p>
+
+        <p>
+            <b>Marks per correct answer:</b> 0.50
+        </p>
+
+        <p>
+            <b>Quiz Started:</b> 23-Jul-2026<br>
+            11:00:29
+        </p>
+
+        <p>
+            <b>Quiz Completed:</b> 23-Jul-2026<br>
+            11:08:46
+        </p>
+
+        <p>
+            Thank You
+        </p>
+
+        <p>
+            WebMaster
+        </p>
 
 
         <div class="button">
-
-            <a href="dashboard.html"><button>Back To Quiz Papers</button></a>
-
+            <a href="dashboard.html">
+                <button>Back To Quiz Papers</button>
+            </a>
         </div>
+
     </div>
+
 
     <footer class="footer">
 
-        © Copyright 2026 - NIPA:
-        NIPA GENX ELECTRONIC RESOURCES
-        AND SOLUTIONS P. LTD.
-        All Rights Reserved.
+        © Copyright 2026 - NIPA: NIPA GENX ELECTRONIC<br>
+        RESOURCES AND SOLUTIONS P. LTD. All Rights<br>
+        Reserved.
 
     </footer>
-    <!-- <script src="result.js"></script> -->
 
 </body>
 
